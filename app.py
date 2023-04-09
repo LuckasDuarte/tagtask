@@ -18,6 +18,8 @@ class App():
         Janela.title("TAGTASK")
 
     def Tela_login_componentes(self):
+
+        texto = "#545454"
         image_login = tkinter.PhotoImage(file="C:/Users/lucas/Desktop/KANBAN/images/fundo_login.png")
 
         #Verde => #00bf63
@@ -40,6 +42,13 @@ class App():
         label_logo.grid(column = 0, row = 0)
 
         # Componentes Login
+
+        label_login = CTkLabel(Frame_login, text="Fazer Login", text_color = texto, font=("Roboto", 20))
+        label_login.grid(column = 0, row = 1)
+
+        # Entrys Login
+        user_entry = CTkEntry(Frame_login, placeholder_text="Usuário", width=250)
+        user_entry.grid(column = 0, row = 2, pady = 10)
         
 
 
