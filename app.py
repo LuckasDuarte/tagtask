@@ -58,6 +58,16 @@ class App():
         login_btn = CTkButton(Frame_login, text="ENTRAR", width=250, cursor = "hand2", fg_color= btn_color, text_color="#000", hover_color="#0f0")
         login_btn.grid(column = 0, row = 4, pady = 10)
         
+        # Creditos label
+        credito_label = CTkLabel(Frame_login, text="---- Desenvolvido por: Lucas Duarte ----", text_color = texto, font=("Roboto", 15))
+        credito_label.grid(column = 0, row = 5, pady= 10)
+
+        # Cadastro
+        cadastro_label = CTkLabel(Frame_login, text="Não Tem Conta?:", text_color = texto, font=("Roboto", 13))
+        cadastro_label.grid(column = 0, row = 7, pady= 10)
+
+        cadastro_btn = CTkButton(Frame_login, text="CADASTRE-SE", width=200, cursor = "hand2", fg_color= "#069", text_color="#000", hover_color="#0f0")
+        cadastro_btn.grid(column = 0, row = 8,)
 
 
 App()
