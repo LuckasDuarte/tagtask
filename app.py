@@ -1,5 +1,6 @@
 from customtkinter import *
 from tkinter import *
+from tkinter import messagebox
 import tkinter
 
 Janela = tkinter.Tk()
@@ -98,8 +99,34 @@ class App():
             password_entry_confirm = CTkEntry(Frame_cadastro, placeholder_text="Repita a Senha", width=250, fg_color="#ccc", border_color="#191919", border_width=0.6,text_color="#000", placeholder_text_color="#000", show = "*")
             password_entry_confirm.grid(column = 0, row = 4, pady = 10)
 
-            login_btn = CTkButton(Frame_cadastro, text="CADASTRAR", width=250, cursor = "hand2", fg_color= btn_color, text_color="#000", hover_color="#0f0")
-            login_btn.grid(column = 0, row = 5, pady = 10)
+            def Verificar_Cadastro():
+
+                try:
+
+                    user = user_entry.get()
+                    password = password_entry.get()
+                    password_confirm = password_entry_confirm.get()
+
+                    if user == "":
+                        messagebox.showerror(title="Usuário Inválido", message="Insira Um Usuário Válido!")
+                    if password == "":
+                        messagebox.showerror(title="Usuário Inválido", message="Insira Uma senha Válida!")
+                    if password == "":
+                        messagebox.showerror(title="Usuário Inválido", message="Insira Uma senha Válida 2 !")
+                    if password != password_confirm:
+                        messagebox.showerror(title="Senhas Divergêntes", message="As senhas inseridas, não são iguais!")
+
+                    else:
+                        dados = [user, password, password_confirm]
+                        messagebox.showinfo(title="Sucesso", message="Usuário Criado Com Sucesso!")
+                except:
+                    pass
+                        
+
+                
+
+            cadastro_user_btn = CTkButton(Frame_cadastro, text="CADASTRAR", width=250, cursor = "hand2", fg_color= btn_color, text_color="#000", hover_color="#0f0", command= Verificar_Cadastro)
+            cadastro_user_btn.grid(column = 0, row = 5, pady = 10)
             
             def voltar():
                 # Retirando Frame Cadastro
@@ -109,7 +136,7 @@ class App():
                 cadastro_btn.grid(column = 0, row = 8)
                 pass
 
-            voltar_btn = CTkButton(Frame_cadastro, text="VOLTAR", width=150, cursor = "hand2", fg_color= btn_color, text_color="#000", hover_color="#0f0", command= voltar)
+            voltar_btn = CTkButton(Frame_cadastro, text="VOLTAR", width=120, cursor = "hand2", fg_color= btn_color, text_color="#000", hover_color="#0f0", command= voltar)
             voltar_btn.grid(column = 0, row = 6, pady = 10)
 
             # Retirando botao de cadastro
