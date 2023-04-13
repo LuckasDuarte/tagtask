@@ -5,10 +5,12 @@ import tkinter
 
 Janela = tkinter.Tk()
 
+
 class App():
     def __init__(self):
         self.Tela()
         self.Tela_login_componentes()
+        # self.Tela_Home()
         Janela.mainloop()
         
 
@@ -57,7 +59,11 @@ class App():
         password_entry = CTkEntry(Frame_login, placeholder_text="Senha", width=250, fg_color="#ccc", border_color="#191919", border_width=0.6,text_color="#000", placeholder_text_color="#000", show = "*")
         password_entry.grid(column = 0, row = 3, pady = 10)
 
-        login_btn = CTkButton(Frame_login, text="ENTRAR", width=250, cursor = "hand2", fg_color= btn_color, text_color="#000", hover_color="#0f0")
+        def Login():
+            Janela.destroy()
+            Home = Toplevel()
+        
+        login_btn = CTkButton(Frame_login, text="ENTRAR", width=250, cursor = "hand2", fg_color= btn_color, text_color="#000", hover_color="#0f0", command= Login)
         login_btn.grid(column = 0, row = 4, pady = 10)
         
         # Creditos label
@@ -146,7 +152,6 @@ class App():
 
         cadastro_btn = CTkButton(Frame_login, text="CADASTRE-SE", width=200, cursor = "hand2", fg_color= "#069", text_color="#000", hover_color="#0f0", command= cadastro_tela)
         cadastro_btn.grid(column = 0, row = 8)
-    
     
 
 App()
